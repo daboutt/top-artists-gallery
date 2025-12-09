@@ -1,3 +1,4 @@
+import { ANIMATION_CONFIG } from '../lib/constant';
 import type { Artist } from '../lib/types';
 import './ArtistTitleText.css';
 import { motion } from 'motion/react';
@@ -17,14 +18,9 @@ export default function ArtistTitleText({
     <motion.div
       data-text={artist.id}
       className='artist'
-      whileHover={{ scale: [1.8, 1.8] }}
-      animate={{ scale: 1 }}
-      transition={{
-        type: 'spring',
-        stiffness: 300,
-        damping: 10,
-        mass: 0.8,
-      }}
+      animate={ANIMATION_CONFIG.initial}
+      whileHover={ANIMATION_CONFIG.hover}
+      transition={ANIMATION_CONFIG.transition}
       onMouseEnter={(e) => onHover(e.currentTarget.dataset.text!)}
       onMouseLeave={onHoverEnd}
     >
